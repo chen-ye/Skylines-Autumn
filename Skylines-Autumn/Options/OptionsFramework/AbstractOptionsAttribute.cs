@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DynamicFoliage.OptionsFramework
+namespace DynamicFoliage.OptionsSpace.OptionsFramework
 {
     public abstract class AbstractOptionsAttribute : Attribute 
     {

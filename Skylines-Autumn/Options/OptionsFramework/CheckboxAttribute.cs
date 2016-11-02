@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace DynamicFoliage.OptionsFramework
+namespace DynamicFoliage.OptionsSpace.OptionsFramework
 {
     [AttributeUsage(AttributeTargets.Property)]
     public class CheckboxAttribute : AbstractOptionsAttribute

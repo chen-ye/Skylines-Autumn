@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using ICities;
 using System;
-using FoliageChirpLogger;
 
 namespace DynamicFoliage
 {
@@ -9,8 +8,6 @@ namespace DynamicFoliage
     {
         public override void OnCreated(IThreading threading)
         {
-            ChirpLog.Debug("hi");
-
             DynamicFoliageEngine.Instance.ThreadingManager = threading;
         }
 
@@ -22,8 +19,7 @@ namespace DynamicFoliage
             }
             catch (Exception ex)
             {
-                //TODO Log this 
-                ChirpLog.Error(ex.Message);
+                Debug.LogException(ex);
             }
         }
 

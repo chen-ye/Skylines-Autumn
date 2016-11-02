@@ -56,23 +56,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChirpLogger\ChirpLogger.cs" />
-    <Compile Include="ChirpLogger\ChirpLogger.Internal\Chirp.cs" />
     <Compile Include="Detours\NaturalResourcesManagerDetour.cs" />
     <Compile Include="DynamicFoliageEngine.cs" />
-    <Compile Include="ThreadingExtensionBase.cs" />
     <Compile Include="InfoViewMonitor.cs" />
     <Compile Include="LoadingExtension.cs" />
-    <Compile Include="Mod.cs" />
-    <Compile Include="Options.cs" />
-    <Compile Include="OptionsFramework\AbstractOptionsAttribute.cs" />
-    <Compile Include="OptionsFramework\CheckboxAttribute.cs" />
-    <Compile Include="OptionsFramework\IModOptions.cs" />
-    <Compile Include="OptionsFramework\IModOptionsExtension.cs" />
-    <Compile Include="OptionsFramework\OptionsWrapper.cs" />
-    <Compile Include="OptionsFramework\TextFieldAttribute.cs" />
-    <Compile Include="OptionsFramework\UIHelperBaseExtension.cs" />
-    <Compile Include="OptionsFramework\Util.cs" />
+    <Compile Include="ModInfo.cs" />
+    <Compile Include="Options\Options.cs" />
+    <Compile Include="Options\OptionsFramework\AbstractOptionsAttribute.cs" />
+    <Compile Include="Options\OptionsFramework\CheckboxAttribute.cs" />
+    <Compile Include="Options\OptionsFramework\DropDownAttribute.cs" />
+    <Compile Include="Options\OptionsFramework\DynamicDropDownAttribute.cs" />
+    <Compile Include="Options\OptionsFramework\IModOptions.cs" />
+    <Compile Include="Options\OptionsFramework\IModOptionsExtension.cs" />
+    <Compile Include="Options\OptionsFramework\OptionsWrapper.cs" />
+    <Compile Include="Options\OptionsFramework\TextFieldAttribute.cs" />
+    <Compile Include="Options\OptionsFramework\UIHelperBaseExtension.cs" />
+    <Compile Include="Options\OptionsFramework\Util.cs" />
+    <Compile Include="Options\Profiles\ProfileIO.cs" />
+    <Compile Include="Options\Profiles\ProfileXml.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Redirection\RedirectionHelper.cs" />
     <Compile Include="Redirection\RedirectionUtil.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="Redirection\RedirectReverseAttribute.cs" />
     <Compile Include="Redirection\TargetTypeAttribute.cs" />
     <Compile Include="Redirection\Tuple.cs" />
+    <Compile Include="ThreadingExtensionBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

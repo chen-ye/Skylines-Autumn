@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace DynamicFoliage.OptionsFramework
+namespace DynamicFoliage.OptionsSpace.OptionsFramework
 {
     public class Util
     {

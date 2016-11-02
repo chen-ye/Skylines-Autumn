@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FoliageProfileContainer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Profiles>
+    <Profile ProfileName="Default (New York)">
+      <DefaultParameters>
+        <SeaLevel>0</SeaLevel>
+      </DefaultParameters>
+      <StaticAnnualVerdance>
+        <Measure>
+          <gMonthDay>--03-01</gMonthDay>
+          <Verdance>.2</Verdance>
+        </Measure>
+        <Measure>
+          <gMonthDay>--04-01</gMonthDay>
+          <Verdance>1</Verdance>
+        </Measure>
+        <Measure>
+          <gMonthDay>--07-01</gMonthDay>
+          <Verdance>1</Verdance>
+        </Measure>
+        <Measure>
+          <gMonthDay>--09-09</gMonthDay>
+          <Verdance>.6</Verdance>
+        </Measure>
+        <Measure>
+          <gMonthDay>--09-16</gMonthDay>
+          <Verdance>.5</Verdance>
+        </Measure>
+        <Measure>
+          <gMonthDay>--10-01</gMonthDay>
+          <Verdance>.4</Verdance>
+        </Measure>
+        <Measure>
+          <gMonthDay>--11-01</gMonthDay>
+          <Verdance>.2</Verdance>
+        </Measure>
+    </StaticAnnualVerdance>
+    </Profile>
+  </Profiles>
+</FoliageProfileContainer>

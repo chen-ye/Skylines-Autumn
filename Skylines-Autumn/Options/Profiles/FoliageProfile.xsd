@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="FoliageProfileContainer" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="FoliageProfileContainer" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="FoliageProfileContainer" msprop:Generator_UserDSName="FoliageProfileContainer">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Profiles" msprop:Generator_TableClassName="ProfilesDataTable" msprop:Generator_TableVarName="tableProfiles" msprop:Generator_TablePropName="Profiles" msprop:Generator_RowDeletingName="ProfilesRowDeleting" msprop:Generator_RowChangingName="ProfilesRowChanging" msprop:Generator_RowEvHandlerName="ProfilesRowChangeEventHandler" msprop:Generator_RowDeletedName="ProfilesRowDeleted" msprop:Generator_UserTableName="Profiles" msprop:Generator_RowChangedName="ProfilesRowChanged" msprop:Generator_RowEvArgName="ProfilesRowChangeEvent" msprop:Generator_RowClassName="ProfilesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Profile" msprop:Generator_TableClassName="ProfileDataTable" msprop:Generator_TableVarName="tableProfile" msprop:Generator_TablePropName="Profile" msprop:Generator_RowDeletingName="ProfileRowDeleting" msprop:Generator_RowChangingName="ProfileRowChanging" msprop:Generator_RowEvHandlerName="ProfileRowChangeEventHandler" msprop:Generator_RowDeletedName="ProfileRowDeleted" msprop:Generator_UserTableName="Profile" msprop:Generator_RowChangedName="ProfileRowChanged" msprop:Generator_RowEvArgName="ProfileRowChangeEvent" msprop:Generator_RowClassName="ProfileRow" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="StaticAnnualVerdance" msprop:Generator_TableClassName="StaticAnnualVerdanceDataTable" msprop:Generator_TableVarName="tableStaticAnnualVerdance" msprop:Generator_TablePropName="StaticAnnualVerdance" msprop:Generator_RowDeletingName="StaticAnnualVerdanceRowDeleting" msprop:Generator_RowChangingName="StaticAnnualVerdanceRowChanging" msprop:Generator_RowEvHandlerName="StaticAnnualVerdanceRowChangeEventHandler" msprop:Generator_RowDeletedName="StaticAnnualVerdanceRowDeleted" msprop:Generator_UserTableName="StaticAnnualVerdance" msprop:Generator_RowChangedName="StaticAnnualVerdanceRowChanged" msprop:Generator_RowEvArgName="StaticAnnualVerdanceRowChangeEvent" msprop:Generator_RowClassName="StaticAnnualVerdanceRow" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Measure" msprop:Generator_TableClassName="MeasureDataTable" msprop:Generator_TableVarName="tableMeasure" msprop:Generator_TablePropName="Measure" msprop:Generator_RowDeletingName="MeasureRowDeleting" msprop:Generator_RowChangingName="MeasureRowChanging" msprop:Generator_RowEvHandlerName="MeasureRowChangeEventHandler" msprop:Generator_RowDeletedName="MeasureRowDeleted" msprop:Generator_UserTableName="Measure" msprop:Generator_RowChangedName="MeasureRowChanged" msprop:Generator_RowEvArgName="MeasureRowChangeEvent" msprop:Generator_RowClassName="MeasureRow" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" type="xs:string" />
+                                <xs:element name="Verdance" msprop:Generator_ColumnVarNameInTable="columnVerdance" msprop:Generator_ColumnPropNameInRow="Verdance" msprop:Generator_ColumnPropNameInTable="VerdanceColumn" msprop:Generator_UserColumnName="Verdance" type="xs:float" default="0" />
+                              </xs:sequence>
+                              <xs:attribute name="StaticAnnualVerdance_Id" msprop:Generator_ColumnVarNameInTable="columnStaticAnnualVerdance_Id" msprop:Generator_ColumnPropNameInRow="StaticAnnualVerdance_Id" msprop:Generator_ColumnPropNameInTable="StaticAnnualVerdance_IdColumn" msprop:Generator_UserColumnName="StaticAnnualVerdance_Id" type="xs:int" use="prohibited" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="StaticAnnualVerdance_Id" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnStaticAnnualVerdance_Id" msprop:Generator_ColumnPropNameInRow="StaticAnnualVerdance_Id" msprop:Generator_ColumnPropNameInTable="StaticAnnualVerdance_IdColumn" msprop:Generator_UserColumnName="StaticAnnualVerdance_Id" type="xs:int" msdata:AllowDBNull="false" use="prohibited" />
+                        <xs:attribute name="Profile_Id" msprop:Generator_ColumnVarNameInTable="columnProfile_Id" msprop:Generator_ColumnPropNameInRow="Profile_Id" msprop:Generator_ColumnPropNameInTable="Profile_IdColumn" msprop:Generator_UserColumnName="Profile_Id" type="xs:int" use="prohibited" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="DefaultParameters" msprop:Generator_TableClassName="DefaultParametersDataTable" msprop:Generator_TableVarName="tableDefaultParameters" msprop:Generator_TablePropName="DefaultParameters" msprop:Generator_RowDeletingName="DefaultParametersRowDeleting" msprop:Generator_RowChangingName="DefaultParametersRowChanging" msprop:Generator_RowEvHandlerName="DefaultParametersRowChangeEventHandler" msprop:Generator_RowDeletedName="DefaultParametersRowDeleted" msprop:Generator_UserTableName="DefaultParameters" msprop:Generator_RowChangedName="DefaultParametersRowChanged" msprop:Generator_RowEvArgName="DefaultParametersRowChangeEvent" msprop:Generator_RowClassName="DefaultParametersRow" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="SeaLevel" msprop:Generator_ColumnVarNameInTable="columnSeaLevel" msprop:Generator_ColumnPropNameInRow="SeaLevel" msprop:Generator_ColumnPropNameInTable="SeaLevelColumn" msprop:Generator_UserColumnName="SeaLevel" type="xs:string" minOccurs="0" />
+                        </xs:sequence>
+                        <xs:attribute name="Profile_Id" msprop:Generator_ColumnVarNameInTable="columnProfile_Id" msprop:Generator_ColumnPropNameInRow="Profile_Id" msprop:Generator_ColumnPropNameInTable="Profile_IdColumn" msprop:Generator_UserColumnName="Profile_Id" type="xs:int" use="prohibited" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="ProfileName" msprop:Generator_ColumnVarNameInTable="columnProfileName" msprop:Generator_ColumnPropNameInRow="ProfileName" msprop:Generator_ColumnPropNameInTable="ProfileNameColumn" msprop:Generator_UserColumnName="ProfileName" type="xs:string" />
+                  <xs:attribute name="Profile_Id" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnProfile_Id" msprop:Generator_ColumnPropNameInRow="Profile_Id" msprop:Generator_ColumnPropNameInTable="Profile_IdColumn" msprop:Generator_UserColumnName="Profile_Id" type="xs:int" msdata:AllowDBNull="false" use="prohibited" />
+                  <xs:attribute name="Profiles_Id" msprop:Generator_ColumnVarNameInTable="columnProfiles_Id" msprop:Generator_ColumnPropNameInRow="Profiles_Id" msprop:Generator_ColumnPropNameInTable="Profiles_IdColumn" msprop:Generator_UserColumnName="Profiles_Id" type="xs:int" use="prohibited" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="Profiles_Id" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnProfiles_Id" msprop:Generator_ColumnPropNameInRow="Profiles_Id" msprop:Generator_ColumnPropNameInTable="Profiles_IdColumn" msprop:Generator_UserColumnName="Profiles_Id" type="xs:int" msdata:AllowDBNull="false" use="prohibited" />
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="StaticAnnualVerdance_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//StaticAnnualVerdance" />
+      <xs:field xpath="@StaticAnnualVerdance_Id" />
+    </xs:unique>
+    <xs:unique name="Profile_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//Profile" />
+      <xs:field xpath="@Profile_Id" />
+    </xs:unique>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//Profiles" />
+      <xs:field xpath="@Profiles_Id" />
+    </xs:unique>
+    <xs:keyref name="Profiles_Profile" refer="Constraint1" msdata:IsNested="true" msprop:rel_Generator_UserChildTable="Profile" msprop:rel_Generator_ChildPropName="GetProfileRows" msprop:rel_Generator_UserRelationName="Profiles_Profile" msprop:rel_Generator_ParentPropName="ProfilesRow" msprop:rel_Generator_RelationVarName="relationProfiles_Profile" msprop:rel_Generator_UserParentTable="Profiles">
+      <xs:selector xpath=".//Profile" />
+      <xs:field xpath="@Profiles_Id" />
+    </xs:keyref>
+    <xs:keyref name="Profile_DefaultParameters" refer="Profile_Constraint1" msdata:IsNested="true" msprop:rel_Generator_UserChildTable="DefaultParameters" msprop:rel_Generator_ChildPropName="GetDefaultParametersRows" msprop:rel_Generator_UserRelationName="Profile_DefaultParameters" msprop:rel_Generator_ParentPropName="ProfileRow" msprop:rel_Generator_RelationVarName="relationProfile_DefaultParameters" msprop:rel_Generator_UserParentTable="Profile">
+      <xs:selector xpath=".//DefaultParameters" />
+      <xs:field xpath="@Profile_Id" />
+    </xs:keyref>
+    <xs:keyref name="Profile_StaticAnnualVerdance" refer="Profile_Constraint1" msdata:IsNested="true" msprop:rel_Generator_UserChildTable="StaticAnnualVerdance" msprop:rel_Generator_ChildPropName="GetStaticAnnualVerdanceRows" msprop:rel_Generator_UserRelationName="Profile_StaticAnnualVerdance" msprop:rel_Generator_ParentPropName="ProfileRow" msprop:rel_Generator_RelationVarName="relationProfile_StaticAnnualVerdance" msprop:rel_Generator_UserParentTable="Profile">
+      <xs:selector xpath=".//StaticAnnualVerdance" />
+      <xs:field xpath="@Profile_Id" />
+    </xs:keyref>
+    <xs:keyref name="StaticAnnualVerdance_Measure" refer="StaticAnnualVerdance_Constraint1" msdata:IsNested="true" msprop:rel_Generator_UserChildTable="Measure" msprop:rel_Generator_ChildPropName="GetMeasureRows" msprop:rel_Generator_UserRelationName="StaticAnnualVerdance_Measure" msprop:rel_Generator_ParentPropName="StaticAnnualVerdanceRow" msprop:rel_Generator_RelationVarName="relationStaticAnnualVerdance_Measure" msprop:rel_Generator_UserParentTable="StaticAnnualVerdance">
+      <xs:selector xpath=".//Measure" />
+      <xs:field xpath="@StaticAnnualVerdance_Id" />
+    </xs:keyref>
+  </xs:element>
+</xs:schema>

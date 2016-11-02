@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Reflection;
 using System.Threading;
-using DynamicFoliage.OptionsFramework;
 using DynamicFoliage.Redirection;
 using UnityEngine;
+using DynamicFoliage.OptionsSpace.OptionsFramework;
+using DynamicFoliage.OptionsSpace;
 
 namespace DynamicFoliage
 {
@@ -19,7 +20,6 @@ namespace DynamicFoliage
 
         public static void RefreshTexture(bool stub)
         {
-            var options = OptionsWrapper<Options>.Options;
             if (!SimulationManager.exists || !exists)
             {
                 return;
@@ -116,11 +116,11 @@ namespace DynamicFoliage
                                 oil,
                                 sand,
                                 fertility,
-                                options.shore ? 0 : shore,
+                                options.enableShore ? 0 : shore,
                                 forest,
-                                options.pollution ? 0 : pollution);
+                                options.enablePollution ? 0 : pollution);
                             infoViewTexture.SetPixel(x, index, CalculateInitialColorComponents(ore, oil, sand, fertility, shore, forest, pollution));
-                            if (options.season)
+                            if (options.enableSeasons)
                             {
                                 /// Adjust a color's verdancy, by verdancyPct
                                 /// 1 - ((1 - b) * verdancyPct)

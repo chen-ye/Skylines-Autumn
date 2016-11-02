@@ -1,10 +1,10 @@
 ﻿using ColossalFramework;
 using ICities;
 using System;
-using DynamicFoliage.OptionsFramework;
-using DynamicFoliage.Redirection;
-using System.Collections.Generic;
 using UnityEngine;
+using DynamicFoliage.OptionsSpace.OptionsFramework;
+using DynamicFoliage.OptionsSpace;
+using DynamicFoliage.OptionsSpace.Profiles;
 
 namespace DynamicFoliage
 {
@@ -63,12 +63,33 @@ namespace DynamicFoliage
             }
         }
 
-        public static void SetUpdateFrequency(bool stub)
+        public static void SetUpdateFrequency(string stub)
         {
-            Instance.UpdateFrequency = OptionsWrapper<Options>.Options.updateFrequency;
+            Instance.UpdateFrequency = float.Parse(OptionsWrapper<Options>.Options.updateFrequency);
+        }
+
+        public static void SetProfile(string stub)
+        {
+            Instance.CurrentProfile = ProfileIO.LoadedProfiles[OptionsWrapper<Options>.Options.profile];
         }
 
         public bool IsInitialized { get; private set; }
+
+
+        public FoliageProfile CurrentProfile {
+            get
+            {
+                return currentProfile;
+            }
+            set
+            {
+                currentProfile = value;
+                CurrentAnnualVerdance = value.m_staticAnnualVerdance;
+            }
+        }
+        public VerdanceMeasure[] CurrentAnnualVerdance { get; private set; }
+
+        private FoliageProfile currentProfile;
 
         private SimulationManager simulationManager;
         private NaturalResourceManager naturalResourcesManager;
@@ -76,30 +97,20 @@ namespace DynamicFoliage
 
         private DateTime lastTimeUpdate;
         public double UpdateFrequency { get; set; }
-
-        public List<Tuple<int, float>> SeasonalVerdance { get; private set; }
+        
         private int upperIndex = 0;
 
         private DynamicFoliageEngine()
         {
             this.IsInitialized = false;
-            this.UpdateFrequency = OptionsWrapper<Options>.Options.updateFrequency;
             InitializeManagers();
         }
 
         public void Initialize()
         {
             lastTimeUpdate = DateTime.MinValue;
-            SeasonalVerdance = new List<Tuple<int, float>>()
-            {
-                new Tuple<int, float>(new DateTime(2016,3,1).DayOfYear,.2F),
-                new Tuple<int, float>(new DateTime(2016,4,1).DayOfYear,1F),
-                new Tuple<int, float>(new DateTime(2016,7,1).DayOfYear,1F),
-                new Tuple<int, float>(new DateTime(2016,9,9).DayOfYear,.6F),
-                new Tuple<int, float>(new DateTime(2016,9,16).DayOfYear,.5F),
-                new Tuple<int, float>(new DateTime(2016,10,1).DayOfYear,.4F),
-                new Tuple<int, float>(new DateTime(2016,11,1).DayOfYear,.2F)
-            };
+            SetUpdateFrequency(null);
+            SetProfile(null);
             this.IsInitialized = true;
         }
 
@@ -142,11 +153,11 @@ namespace DynamicFoliage
 
             int dayOfYear = currentTime.DayOfYear;
 
-            int numIndices = SeasonalVerdance.Count;
+            int numIndices = CurrentAnnualVerdance.Length;
 
             while (upperIndex < numIndices)
             {
-                if (dayOfYear <= SeasonalVerdance[upperIndex].First)
+                if (dayOfYear <= CurrentAnnualVerdance[upperIndex].dayOfYear)
                 {
                     break;
                 }
@@ -157,15 +168,15 @@ namespace DynamicFoliage
 
             if (upperIndex == 0)
             {
-                coefficient = SeasonalVerdance[upperIndex].Second;
+                coefficient = CurrentAnnualVerdance[upperIndex].verdance;
             } else if (upperIndex == numIndices)
             {
-                coefficient = SeasonalVerdance[numIndices - 1].Second;
+                coefficient = CurrentAnnualVerdance[numIndices - 1].verdance;
             } else
             {
-                Tuple<int, float> upper = SeasonalVerdance[upperIndex];
-                Tuple<int, float> lower = SeasonalVerdance[upperIndex - 1];
-                coefficient = Mathf.Lerp(lower.Second, upper.Second, Mathf.InverseLerp(lower.First, upper.First, dayOfYear));
+                VerdanceMeasure upper = CurrentAnnualVerdance[upperIndex];
+                VerdanceMeasure lower = CurrentAnnualVerdance[upperIndex - 1];
+                coefficient = Mathf.Lerp(lower.verdance, upper.verdance, Mathf.InverseLerp(lower.dayOfYear, upper.dayOfYear, dayOfYear));
             }
 
             if(NaturalResourcesManagerDetour.m_seasonalCoefficient != coefficient)
@@ -181,7 +192,8 @@ namespace DynamicFoliage
 
         private DateTime GetDateTime()
         {
-            return this.ThreadingManager.simulationTime;
+            //return this.ThreadingManager.simulationTime;
+            return this.simulationManager.FrameToTime(this.ThreadingManager.simulationFrame);
             //int realHour = (int)this.ThreadingManager.simulationDayTimeHour;
             //int realMinute = (int)((this.ThreadingManager.simulationDayTimeHour - realHour) * 60);
             //return new DateTime(this.ThreadingManager.simulationTime.Year, this.ThreadingManager.simulationTime.Month, this.ThreadingManager.simulationTime.Day, realHour, realMinute, 0);

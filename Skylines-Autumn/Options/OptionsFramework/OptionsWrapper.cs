@@ -3,7 +3,7 @@ using System.IO;
 using System.Xml.Serialization;
 using UnityEngine;
 
-namespace DynamicFoliage.OptionsFramework
+namespace DynamicFoliage.OptionsSpace.OptionsFramework
 {
     public class OptionsWrapper<T> where T : IModOptions
     {
@@ -29,7 +29,12 @@ namespace DynamicFoliage.OptionsFramework
                 try
                 {
                     var xmlSerializer = new XmlSerializer(typeof(T));
-                    using (var streamReader = new StreamReader(_instance.FileName))
+                    var fileName = _instance.FileName;
+                    if (!fileName.EndsWith(".xml"))
+                    {
+                        fileName = fileName + ".xml";
+                    }
+                    using (var streamReader = new StreamReader(fileName))
                     {
                         var options = (T)xmlSerializer.Deserialize(streamReader);
                         foreach (var propertyInfo in typeof(T).GetProperties())
@@ -59,7 +64,12 @@ namespace DynamicFoliage.OptionsFramework
             try
             {
                 var xmlSerializer = new XmlSerializer(typeof(T));
-                using (var streamWriter = new StreamWriter(_instance.FileName))
+                var fileName = _instance.FileName;
+                if (!fileName.EndsWith(".xml"))
+                {
+                    fileName = fileName + ".xml";
+                }
+                using (var streamWriter = new StreamWriter(fileName))
                 {
                     xmlSerializer.Serialize(streamWriter, _instance);
                 }

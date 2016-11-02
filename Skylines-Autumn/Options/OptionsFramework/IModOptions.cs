@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace DynamicFoliage.OptionsFramework
+namespace DynamicFoliage.OptionsSpace.OptionsFramework
 {
     public interface IModOptions
     {
