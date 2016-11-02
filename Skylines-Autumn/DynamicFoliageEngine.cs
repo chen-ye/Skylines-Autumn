@@ -8,6 +8,7 @@ using DynamicFoliage.OptionsSpace.Profiles;
 
 namespace DynamicFoliage
 {
+#if DEBUG
     public class ChirpBox : IChirperMessage
     {
         private static DateTime lastChrip = DateTime.MinValue;
@@ -47,6 +48,7 @@ namespace DynamicFoliage
             get; set;
         }
     }
+#endif
 
     public class DynamicFoliageEngine
     {

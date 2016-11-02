@@ -8,13 +8,13 @@ namespace DynamicFoliage
 {
     public class ModInfo : IUserMod
     {
-        public string Name => "Skylines Dynamic Foliage";
+        public string Name => "Dynamic Foliage";
 
-        public string Description => "Allow trees to change color based on the season.";
+        public string Description => "Allow trees to change color based on the season and other factors.";
 
         public void OnSettingsUI(UIHelperBase helper)
         {
-            ProfileIO.LoadProfiles(); //test
+            ProfileIO.LoadProfiles();
             helper.AddOptionsGroup<Options>();
 
 #if DEBUG
