@@ -14,6 +14,7 @@ namespace DynamicFoliage.OptionsSpace
             enableSeasons = true;
             enableShore = true;
             enablePollution = true;
+            enableBurned = true;
 
             profile = "Default (New York)";
             updateFrequency = "8";
@@ -29,6 +30,8 @@ namespace DynamicFoliage.OptionsSpace
         public bool enableShore { set; get; }
         [Checkbox("Enable polluted foliage and ground color effect", nameof(NaturalResourcesManagerDetour), nameof(NaturalResourcesManagerDetour.RefreshTexture))]
         public bool enablePollution { set; get; }
+        [Checkbox("Enable burned foliage and ground color effect", nameof(NaturalResourcesManagerDetour), nameof(NaturalResourcesManagerDetour.RefreshTexture))]
+        public bool enableBurned { set; get; }
 
         [TextField("Foliage update frequency (in simulation hours)", nameof(DynamicFoliageEngine), nameof(DynamicFoliageEngine.SetUpdateFrequency))]
         public string updateFrequency { set; get; }

@@ -15,19 +15,29 @@ namespace DynamicFoliage
             }
             if (InfoManager.instance.CurrentMode == InfoManager.InfoMode.None)
             {
-                if (!NaturalResourceManager.exists || NaturalResourceManager.instance.m_resourceTexture == null)
+                if (!NaturalResourceManager.exists)
                 {
                     return;
                 }
-                Shader.SetGlobalTexture("_NaturalResources", (Texture)NaturalResourceManager.instance.m_resourceTexture);
+                if (NaturalResourceManager.instance.m_resourceTexture != null)
+                {
+                    Shader.SetGlobalTexture("_NaturalResources", (Texture) NaturalResourceManager.instance.m_resourceTexture);
+                }
+                if (NaturalResourceManager.instance.m_destructionTexture != null)
+                {
+                    Shader.SetGlobalTexture("_NaturalDestruction", (Texture) NaturalResourceManager.instance.m_destructionTexture);
+                }
             }
             else
             {
-                if (NaturalResourcesManagerDetour.infoViewTexture == null)
+                if (NaturalResourcesManagerDetour.infoViewTexture != null)
                 {
-                    return;
+                    Shader.SetGlobalTexture("_NaturalResources", (Texture) NaturalResourcesManagerDetour.infoViewTexture);
                 }
-                Shader.SetGlobalTexture("_NaturalResources", (Texture)NaturalResourcesManagerDetour.infoViewTexture);
+                if (NaturalResourcesManagerDetour.infoViewTextureB != null)
+                {
+                    Shader.SetGlobalTexture("_NaturalDestruction", (Texture) NaturalResourcesManagerDetour.infoViewTextureB);
+                }
             }
             cachedInfoMode = InfoManager.instance.CurrentMode;
         }
